@@ -47,8 +47,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnDisable()
     {
-        StopCoroutine(checkForInteractablesRoutine);
-        checkForInteractablesRoutine = null;
+        if (checkForInteractablesRoutine != null)
+        {
+            StopCoroutine(checkForInteractablesRoutine);
+            checkForInteractablesRoutine = null;
+        }
 
         InputManager.instance.onInteract -= Interact;
     }
@@ -143,6 +146,7 @@ public class PlayerInteract : MonoBehaviour
         if (!hasFoundNewInteractable)
         {
             currentBestInteractableObjectToInteractWith?.SetIsInteractable(false);
+            currentBestInteractableObjectToInteractWith = null;
         }
     }
 
