@@ -4,14 +4,14 @@ A versatile 3d Interaction system similar to games like Resident Evil 7
 The player movement and camera controls are pretty simple and were made based on this Brackeys's tutorial: https://www.youtube.com/watch?v=_QajrabyTJc&t=860s
 The InputManager is a simple script that handles player inputs and fires events based on those, and it ONLY WORKS with the New Input System of unity
 
+# Interaction System
+
+A reusable interaction system for Unity that allows players to detect and interact with objects in the game world. The system prioritizes interactable objects based on the player's camera direction and distance, checks for obstacles that block interaction, and communicates interaction states to UI elements through events.
+
 # Requirements
 Unity
 
 Unity's New Input System
-
-**Interaction System**
-
-A reusable interaction system for Unity that allows players to detect and interact with objects in the game world. The system prioritizes interactable objects based on the player's camera direction and distance, checks for obstacles that block interaction, and communicates interaction states to UI elements through events.
 
 # C# Scripts
 **IInteractable.cs:**
