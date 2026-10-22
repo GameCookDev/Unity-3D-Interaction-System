@@ -29,15 +29,24 @@ public class PlayerInteract : MonoBehaviour
 
     [SerializeField] private bool showGizmos = true;
 
+    private bool alreadySubbedToInputManager = false; 
+
     private void Start()
     {
-        InputManager.instance.onInteract += Interact;
+        if (!alreadySubbedToInputManager)
+        {
+            InputManager.instance.onInteract += Interact;
+            alreadySubbedToInputManager = true;
+        }
     }
 
     private void OnEnable()
     {
-        if (InputManager.instance != null)
+        if (InputManager.instance != null && !alreadySubbedToInputManager)
+        {
             InputManager.instance.onInteract += Interact;
+            alreadySubbedToInputManager = true;
+        }
 
         if (checkForInteractablesRoutine != null)
             StopCoroutine(checkForInteractablesRoutine);
